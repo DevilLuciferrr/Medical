@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+<style>
+    body{
+        background: url('https://media.istockphoto.com/photos/medical-or-science-with-soft-light-background-picture-id532963888?b=1&k=20&m=532963888&s=170667a&w=0&h=M4yUU0hRRuXD6uL3BFIGx_kdEFtusXcK4MhUArhFLfY=');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    card {
+  display: block;
+  background-color: white;
+  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
+  padding: 2%;
+  margin: 10px 0; }
+
+card-title {
+  display: block;
+  padding-left: 15px;
+  font-size: 1.8rem; }
+
+@media screen and (min-width: 1000px) {
+  card {
+    border-radius: 5px; } }
+
+input-group {
+  position: relative;
+  display: block; }
+  input-group input-label {
+    position: absolute;
+    display: block;
+    top: 8px;
+    left: 22%;
+    right: 0;
+    width: 60%;
+    color: white;
+    z-index: 0;
+    transition: .3s; }
+    input-group input-label.active {
+      top: -20px;
+      font-size: 85%;
+      color: rgba(255, 255, 255, 0.7); }
+
+.primary {
+  background-color: #4b54fe;
+  color: white; }
+
+.secondary {
+  background-color: #da5858;
+  color: white; }
+
+.accent {
+  background-color: #00a1ff;
+  color: white; }
+
+.primary-text {
+  color: #4b54fe; }
+
+.secondary-text {
+  color: #da5858; }
+
+.accent-text {
+  color: #00a1ff; }
+
+background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url("./login.jpg");
+  background-size: 100% 100%;
+  box-shadow: inset 0 0 0 1000px rgba(0, 161, 255, 0.4);
+  color: mintcream; }
+  @media screen and (max-width: 1000px) {
+    background {
+      background-size: 1920px 1080px;
+      background-position: center; } }
+
+input-group {
+  position: relative;
+  display: block; }
+  input-group input-label {
+    position: absolute;
+    display: block;
+    top: 8px;
+    left: 22%;
+    right: 0;
+    width: 60%;
+    color: papayawhip;
+    z-index: 0;
+    transition: .3s; }
+    input-group input-label.active {
+      top: -20px;
+      font-size: 85%;
+      color: rgba(255, 255, 255, 0.7); }
+
+card-page {
+  width: 92%;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  position: absolute;
+  top: -8px;
+  left: 4%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: .3s; }
+  @media screen and (min-width: 1000px) {
+    card-page:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 12px;
+      top: -12px; } }
+
+top-half {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+  width: calc(100% + 20px);
+  height: 100px;
+  margin: -10px 0 65px -10px;
+  background-color: #da5858;
+  display: block;
+  animation: sm-slide-out 1.3s !important; }
+
+#signup, #login {
+  border-radius: 100%;
+  cursor: pointer;
+  border: none; }
+
+#signup {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: -50px;
+  top: 50px;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  color: white;
+  background-color: #4b54fe;
+  font-weight: bolder;
+  padding-bottom: 15px;
+  transition: .2s ease-in;
+  animation: signup-button .3s; }
+  #signup:focus {
+    border: 2px solid #00a1ff; }
+  #signup:active {
+    opacity: .3; }
+  @media screen and (max-width: 750px) {
+    #signup {
+      right: 10px;
+      top: 10px; } }
+
+#login {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+  font-size: 65px;
+  border: none;
+  background-color: transparent;
+  color: #da5858;
+  margin: 0 auto;
+  display: block;
+  width: 65px;
+  height: 65px;
+  padding: 0;
+  line-height: 0;
+  transition: .3s; }
+  #login:hover {
+    padding-left: 5px; }
+  #login:focus svg {
+    border: 2px solid #00a1ff;
+    border-radius: 100%; }
+  #login:active {
+    padding-left: 10px; }
+
+#submit {
+  position: absolute;
+  left: 90%;
+  bottom: 15px;
+  width: 65px;
+  height: 65px;
+  border: none;
+  font-size: 32px;
+  color: white;
+  background-color: #00a1ff;
+  border-radius: 100%;
+  box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.3);
+  animation: submit-enter 0.7s;
+  animation-delay: 1.3s;
+  cursor: pointer; }
+  #submit:focus {
+    border: 4px solid rgba(218, 88, 88, 0.8); }
+  @media screen and (max-width: 750px) {
+    #submit {
+      left: 82%; } }
+
+.menu {
+  position: relative;
+  margin: 6% auto 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: dropdown .5s;
+  padding: 10px;
+  min-width: 375px;
+  max-width: 500px;
+  height: 500px; }
+  @media screen and (max-width: 750px) {
+    .menu {
+      margin: 20% auto 0;
+      background-color: rgba(0, 0, 0, 0.8); } }
+  .menu h1 {
+    margin: 30px -10px 40px -10px;
+    font-size: 2em;
+    padding-left: 35px;
+    box-sizing: border-box;
+    border-left: 5px solid #00a1ff; }
+  .menu input {
+    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+    display: block;
+    width: 60%;
+    margin: 0 auto 65px auto;
+    height: 30px;
+    border: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    z-index: 1;
+    position: relative; }
+
+.forgot-password {
+  text-align: center;
+  display: block;
+  margin-top: 50px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: .3s;
+  cursor: pointer; }
+  .forgot-password:hover {
+    color: rgba(255, 255, 255, 0.7); }
+  .forgot-password:focus {
+    color: white; }
+
+.signup-menu {
+  background-color: #4b54fe;
+  z-index: 5;
+  animation: sm-pop-out 1.3s !important;
+  display: none;
+  transition: .6s; }
+  .signup-menu.active {
+    display: block; }
+  .signup-menu.decay {
+    margin-top: 100%; }
+  @media screen and (max-width: 1000px) {
+    .signup-menu.decay {
+      margin-top: 200%; } }
+
+.top-menu {
+  display: block;
+  padding: 10px; }
+  .top-menu h1 {
+    margin-top: 15px; }
+
+.signup-close {
+  float: right;
+  padding-right: 40px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  transition: .3s;
+  transform: rotateZ(45deg);
+  font-size: 45px; }
+  .signup-close:hover {
+    color: white;
+    font-size: 50px; }
+  .signup-close:focus {
+    color: white;
+    font-size: 50px; }
+  .signup-close input {
+    margin-bottom: 40px;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 2px solid white; }
+
+.signup-menu a, #login-menu a {
+  text-decoration: none; }
+
+.hidden {
+  display: none; }
+
+.wait-until {
+  animation: sm-wait-until 1.5s !important; }
+
+@keyframes signup-button {
+  0% {
+    right: -50px;
+    width: 100px;
+    top: 35px;
+    height: 100px;
+    opacity: .3; }
+  50% {
+    right: -55px;
+    width: 110px;
+    height: 110px; }
+  100% {
+    right: -50px;
+    width: 100px;
+    top: 50px;
+    height: 100px;
+    opacity: 1; } }
+
+@keyframes submit-enter {
+  0% {
+    left: -35px;
+    transform: rotateY(90deg);
+    box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.3);
+    bottom: 15px; }
+  30% {
+    left: -70px;
+    bottom: -25px;
+    width: 65px;
+    height: 65px;
+    border: none;
+    font-size: 32px;
+    color: white;
+    background-color: #00a1ff;
+    border-radius: 100%;
+    box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.3);
+    transform: rotateY(60deg); }
+  100% {
+    position: absolute;
+    left: 90%;
+    bottom: 15px;
+    width: 65px;
+    height: 65px;
+    box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.3);
+    transform: rotateY(0deg); } }
+
+@keyframes sm-wait-until {
+  0% {
+    opacity: 0; }
+  90% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes sm-slide-out {
+  0% {
+    width: 0; }
+  80% {
+    width: 0; }
+  100% {
+    width: calc(100% + 20px); } }
+
+@keyframes sm-pop-out {
+  0% {
+    position: absolute;
+    max-width: 80px;
+    min-width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+    margin: calc(10% + 50px) calc(50% + 210px) 0; }
+  30% {
+    max-width: 80px;
+    min-width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+    margin: calc(10% + 160px) calc(50% - 40px) 0;
+    transform: rotateZ(45deg); }
+  80% {
+    border-radius: 0;
+    left: 0;
+    top: 0;
+    margin: 10% calc(50% - 260px) 0;
+    width: 500px;
+    height: 450px;
+    transform: scale(1.1, 1.1) rotateZ(0deg); }
+  100% {
+    position: absolute;
+    border-radius: 0;
+    left: 0;
+    top: 0;
+    margin: 10% calc(50% - 260px) 0;
+    width: 500px;
+    height: 450px;
+    transform: scale(1, 1); } }
+
+@keyframes dropdown {
+  0% {
+    top: -100%; }
+  100% {
+    top: 0; } }
+
+
+
+@import "./card.css";
+@import "./input-group.css";
+
+*{
+    font-family: 'Quicksand', sans-serif;
+    outline: none !important;
+}
+
+html{
+    font-size: 18px;
+}
+
+body{
+    overflow: hidden;
+    color: rgba(0,0,0,0.7);
+    margin: 0;
+    padding: 5px 0;
+}
+
+@media screen and (min-width: 1000px){
+    body{
+        padding: 5px 5%;
+    }
+}
+
+
+
+</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="caduceus.jpg" alt="Caduceus" width="50" height=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="new.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Our Goals</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Departments
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Cardiology <img src="heart.jpg" alt="Heart" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Neurology <i class="fa fa-solid fa-2x fa-brain"></i></a></li>
+                  <li><a class="dropdown-item" href="#">General Surgery</a></li>
+                  <li><a class="dropdown-item" href="#">Dermatology <img src="derm.png" alt="Skin" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Hepatology <img src="liver.png" alt="liver" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">ENT <img src="ent.png" alt="ENT" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Paediatrics <i class="fa fa-solid fa-child"></i></a></li>
+                  <li><a class="dropdown-item" href="#">Psychology <img src="psychology.jpg" alt="Psychology" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Radiology <img src="radiology.png" alt="Radiology" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Orthopaedics <i class="fa fa-solid fa-bone"></i></a></li>
+                  <li><a class="dropdown-item" href="#">Nephrology <img src="kidney.jpg" alt="Kidney" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Urology and Renal <img src="urology.png" alt="Urology" width="30" height="35"></a></li>
+                  <li><a class="dropdown-item" href="#">Dental <i class="fa fa-solid fa-tooth"></i></a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Connect to a Doctor (Coming Soon)!</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/care-for-someone.html" class="nav-link">Covid Care <i class="fa fa-solid fa-stethoscope"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" a href="login.html">Login/Register</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Looking for Something!" aria-label="Search">
+              <button class="btn btn-outline-primary" type="submit"><i class="fa fa-brands fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <background>
+      <card id="login-menu" class="menu">
+          <h1 tabindex="1">Login</h1>
+          <button id="signup" aria-label="Sign Up">+</button>
+          <input-group><input id="email" type="email" aria-describedby="Email"><input-label>Email</input-label></input-group>
+          <input-group><input id="password" type="password" aria-describedby="Password"><input-label>Password</input-label></input-group>
+          <button id="login" role="button" aria-describedby="Login"><i class="fas fa-chevron-circle-right"></i></button>
+          <a class="forgot-password">Forgot your password?</a>
+      </card>
+      <card id="signup-menu" class="menu signup-menu">
+        <form action="" method="post">
+          <card-page class="wait-until"></card-page>
+          <top-half>
+              <section class="wait-until top-menu">
+                  <h1>Sign Up<a id="close-signup" class="signup-close" role="button" href="javascript:">+</a></h1>
+              </section>
+          </top-half>
+          </form>
+          <form action="" method="post">
+          <section class="wait-until">
+            <input-group><input id="su-name" type="name" aria-describedby="Name"><input-label>Name</input-label></input-group>
+              <input-group><input id="su-email" type="email" aria-describedby="Email"><input-label>Email</input-label></input-group>
+              <input-group><input id="su-password" type="password" aria-describedby="Password"><input-label>Password</input-label></input-group>
+              <input-group><input id="su-confirm" type="password" aria-describedby="Confirm Password"><input-label>Confirm Password</input-label></input-group>
+              <button id="submit" type="submit" role="button" aria-describedby="Create Account"><i class="fas fa-chevron-right"></i></button>
+          </section>
+          </form>
+      </card>
+    </background>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+    
+    
+    <script>
+    const gui = {
+  ele: id => {
+    let e = document.getElementById(id);
+    e.toggleClass = name => e.classList.contains(name) ? e.classList.remove(name) : e.classList.add(name);
+    return e;
+  },
+  onclick: (ele, fn) => {
+    ele.addEventListener('click', () => fn());
+  },
+  InputGroup: () => {
+    let inputs = Array.from(document.getElementsByTagName('input-group'));
+    inputs.forEach(inputGroup => {
+        let input, label;
+        Array.from(inputGroup.children).forEach(ele => ele.localName === 'input' ? input = ele : label = ele);
+        if (input) {
+            input.addEventListener('focus', () => label.classList.add('active'));
+            input.addEventListener('blur', () => input.value ? null : label.classList.remove('active'));
+        }
+    });
+  }
+}
+
+const
+    signup_close = gui.ele('close-signup'),
+    signup_button = gui.ele('signup'),
+    login_menu = gui.ele('login-menu'),
+    signup_menu = gui.ele('signup-menu');
+    
+
+gui.onclick(signup_button, () => {
+    signup_menu.toggleClass('active');
+    signup_button.toggleClass('hidden');
+    setTimeout(() => {
+        gui.InputGroup();
+        login_menu.toggleClass('hidden');
+    }, 1300 * .8);
+});
+
+gui.onclick(signup_close, () => {
+    signup_menu.toggleClass('decay');
+    setTimeout(() => {
+        login_menu.toggleClass('hidden');
+        signup_menu.toggleClass('active');
+        signup_menu.toggleClass('decay');
+        signup_button.toggleClass('hidden');
+    }, 600);
+});
+
+gui.InputGroup();
+
+
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCCcxJELgGFFl_SYVYS8iEPmGwHZbFg2Gs",
+  authDomain: "fir-login-78f61.firebaseapp.com",
+  projectId: "fir-login-78f61",
+  storageBucket: "fir-login-78f61.appspot.com",
+  messagingSenderId: "452866411851",
+  appId: "1:452866411851:web:75d0f38fa5d2b69f2facce"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+</script>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/3992fdfdcc.js" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>
